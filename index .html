@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💗</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        background: #fff0f5;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+    }
+
+    .heart {
+        position: absolute;
+        font-size: 45px;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        animation: float 1.8s ease-out forwards;
+    }
+
+    .love {
+        position: absolute;
+        font-size: 20px;
+        font-weight: bold;
+        color: #d63384;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        animation: textFloat 1.8s ease-out forwards;
+    }
+
+    @keyframes float {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -180px) scale(1.2);
+        }
+    }
+
+    @keyframes textFloat {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -130px);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<script>
+
+document.body.addEventListener("click", function(event) {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+
+    heart.style.left = event.clientX + "px";
+    heart.style.top = event.clientY + "px";
+
+    document.body.appendChild(heart);
+
+
+    const love = document.createElement("div");
+
+    love.className = "love";
+    love.innerHTML = "I love you";
+
+    love.style.left = event.clientX + "px";
+    love.style.top = (event.clientY + 45) + "px";
+
+    document.body.appendChild(love);
+
+
+    setTimeout(function() {
+        heart.remove();
+        love.remove();
+    }, 1800);
+
+});
+
+</script>
+
+</body>
+</html>
